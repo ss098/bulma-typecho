@@ -2,7 +2,7 @@
 <?php $this->need('header.php'); ?>
 
 <div role="main" class="columns">
-    <div class="column">
+    <div class="column is-three-quarters">
         <article class="box">
             <div class="content">
                 <?php $this->content(); ?>
