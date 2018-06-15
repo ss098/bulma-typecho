@@ -2,7 +2,7 @@
 <?php $this->need('header.php'); ?>
 
 <article>
-    <section class="section">
+    <section class="has-text-centered">
         <p class="article-title"><?php $this->title() ?></p>
     </section>
 
