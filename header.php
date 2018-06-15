@@ -18,97 +18,35 @@
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
-    <script type="text/javascript">
-        function hasClass(ele, cls) {
-            return ele.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
-        }
-
-        //为指定的dom元素添加样式
-        function addClass(ele, cls) {
-            if (!this.hasClass(ele, cls)) ele.className += " " + cls;
-        }
-
-        //删除指定dom元素的样式
-        function removeClass(ele, cls) {
-            if (hasClass(ele, cls)) {
-                let reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-                ele.className = ele.className.replace(reg, " ");
-            }
-        }
-
-        // 菜单开关
-        function toggleClass(ele, cls) {
-            let ele2 = document.getElementById('navMenuTransparent')
-            if (hasClass(ele, cls)) {
-                removeClass(ele2, cls);
-                removeClass(ele, cls);
-            } else {
-                addClass(ele, cls);
-                addClass(ele2, cls);
-            }
-        }
-    </script>
 </head>
 <body>
-<nav class="navbar is-transparent">
-    <div class="container">
-        <div class="navbar-brand">
+
+<div class="tabs is-centered">
+    <ul>
+        <li <?= $this->is('index') ? 'class="is-active"' : '' ?>>
             <?php if ($this->options->logoUrl): ?>
-                <a class="navbar-item" href="<?php $this->options->siteUrl(); ?>">
+                <a href="<?php $this->options->siteUrl(); ?>">
                     <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>">
                 </a>
             <?php else: ?>
-                <a class="navbar-item" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
+                <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
             <?php endif; ?>
+        </li>
+        <?php foreach ($this->widget('Widget_Metas_Category_List')->stack as $category) { ?>
+            <li <?= $this->is('category', $category['slug']) ? 'class="is-active"' : '' ?>>
+                <a href="<?= $category['permalink'] ?>"><?= $category['name'] ?></a>
+            </li>
+        <?php } ?>
 
-            <div class="navbar-burger burger" onclick="toggleClass(this, 'is-active')">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+        <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+        <?php while ($pages->next()): ?>
+            <li <?= $this->is('page', $pages->slug) ? 'class="is-active"' : '' ?>>
+                <a href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+            </li>
+        <?php endwhile; ?>
+    </ul>
+</div>
 
-        <div id="navMenuTransparent" class="navbar-menu">
-            <div class="navbar-start">
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        分类
-                    </a>
-                    <div class="navbar-dropdown is-boxed">
-                        <?php foreach ($this->widget('Widget_Metas_Category_List')->stack as $category) { ?>
-                            <a class="navbar-item<?php echo $this->is('category', $category['slug']) ? ' is-active' : '' ?>"
-                               href="<?php echo $category['permalink'] ?>"><?php echo $category['name'] ?></a>
-                        <?php } ?>
-                    </div>
-                </div>
-                <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                <?php while ($pages->next()): ?>
-                    <a class="navbar-item" href="<?php $pages->permalink(); ?>"
-                       title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-                <?php endwhile; ?>
-            </div>
-
-            <div class="navbar-end">
-                <a class="navbar-item is-hidden-desktop-only" href="<?php $this->options->feedUrl(); ?>"
-                   target="_blank">
-                    RSS
-                </a>
-                <?php if ($this->user->hasLogin()): ?>
-                    <a class="navbar-item" href="<?php $this->options->adminUrl(); ?>">
-                        控制台
-                    </a>
-                    <a class="navbar-item" href="<?php $this->options->logoutUrl(); ?>">
-                        退出
-                    </a>
-                <?php else: ?>
-                    <a class="navbar-item" href="<?php $this->options->adminUrl('login.php'); ?>">
-                        登录
-                    </a>
-                <?php endif ?>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<div class="main">
-    <div class="container">
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column is-three-quarters">

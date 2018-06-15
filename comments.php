@@ -1,5 +1,34 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<div id="comments">
+<?php function threadedComments($comments, $options) {
+    ?>
+
+    <div id="<?php $comments->theId(); ?>" class="comment-body">
+        <div class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                    <?php $comments->gravatar('128', ''); ?>
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <div>
+                        <strong><?php $comments->author(); ?></strong>
+                        <br>
+                        <?php $comments->content(); ?>
+                        <small><?php $comments->date('Y 年 m 月 d 日 H:i'); ?></small>
+                        <span class="is-pulled-right"><?php $comments->reply(); ?></span>
+                    </div>
+                </div>
+
+                <?php if ($comments->children) { ?>
+                    <?php $comments->threadedComments($options); ?>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+<section class="section" id="comments">
     <?php $this->comments()->to($comments); ?>
     <?php if ($comments->have()): ?>
         <p><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></p>
@@ -88,4 +117,4 @@
     <?php else: ?>
         <h3><?php _e('评论已关闭'); ?></h3>
     <?php endif; ?>
-</div>
+</section>
