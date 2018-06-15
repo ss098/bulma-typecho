@@ -3,7 +3,11 @@
 
 <article>
     <section class="section">
-        <p class="article-title" href="<?php $this->permalink() ?>"><?php $this->title() ?></p>
+        <p class="article-title"><?php $this->title() ?></p>
+    </section>
+
+    <section class="section content">
+        <?php $this->content() ?>
 
         <div class="field is-grouped is-grouped-multiline" style="margin: 2em 0;">
             <div class="control">
@@ -31,10 +35,6 @@
                 </p>
             </div>
         </div>
-    </section>
-
-    <section class="section content">
-        <?php $this->content() ?>
     </section>
 </article>
 

@@ -15,7 +15,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <?php while($this->next()): ?>
     <article>
         <section class="section">
-            <p class="article-title" href="<?php $this->permalink() ?>"><?php $this->title() ?></p>
+            <a class="article-title" href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
 
             <div class="field is-grouped is-grouped-multiline" style="margin: 2em 0;">
                 <div class="control">
