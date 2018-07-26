@@ -4,11 +4,13 @@
 
     <div id="<?php $comments->theId(); ?>" class="comment-body">
         <div class="media">
+            <?php if ($comments->gravatar('128', '')) { ?>
             <figure class="media-left">
                 <p class="image is-64x64">
                     <?php $comments->gravatar('128', ''); ?>
                 </p>
             </figure>
+            <?php } ?>
             <div class="media-content">
                 <div class="content">
                     <div>
@@ -98,7 +100,7 @@
                             <?php endif; ?>
                         </label>
                         <div class="control">
-                            <textarea name="text" id="textarea" class="textarea" required><?php $this->remember('text'); ?></textarea>
+                            <textarea name="text" id="textarea" class="textarea is-radiusless" required><?php $this->remember('text'); ?></textarea>
                         </div>
                     </div>
                 <?php endif; ?>
