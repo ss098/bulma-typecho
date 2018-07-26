@@ -4,12 +4,12 @@
 
     <div id="<?php $comments->theId(); ?>" class="comment-body">
         <div class="media">
-            <?php if ($comments->gravatar('128', '')) { ?>
-            <figure class="media-left">
-                <p class="image is-64x64">
-                    <?php $comments->gravatar('128', ''); ?>
-                </p>
-            </figure>
+            <?php if (Helper::options()->commentsAvatar > 0) { ?>
+                <figure class="media-left">
+                    <p class="image is-64x64">
+                        <?php $comments->gravatar('128', ''); ?>
+                    </p>
+                </figure>
             <?php } ?>
             <div class="media-content">
                 <div class="content">
