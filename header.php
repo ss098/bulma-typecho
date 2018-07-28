@@ -48,5 +48,4 @@
 </div>
 
 <div class="container">
-    <div class="columns is-centered">
-        <div class="column is-three-quarters">
+    <div class="is-centered">
