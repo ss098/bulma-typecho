@@ -47,5 +47,5 @@
     </ul>
 </div>
 
-<div class="container">
+<div class="container is-clipped">
     <div class="is-centered">
