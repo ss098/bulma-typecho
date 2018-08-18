@@ -296,7 +296,7 @@ th {
 
 html {
     background-color: white;
-    font-size: 16px;
+    font-size: 18px;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     min-width: 300px;
@@ -317,14 +317,6 @@ header,
 hgroup,
 section {
     display: block;
-}
-
-body,
-button,
-input,
-select,
-textarea {
-    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 code,
@@ -372,6 +364,7 @@ hr {
 }
 
 img {
+    border-radius: 1em;
     height: auto;
     max-width: 100%;
 }
@@ -9671,11 +9664,43 @@ label.panel-block:hover {
 
 /* Application */
 
-.article-title {
+.container {
+    max-width: 768px;
+}
+
+.article {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.article .header {
+    padding: 2rem 1rem;
     color: #3354AA;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 100;
     line-height: 1.125;
+    border-left: rgba(0, 0, 0, 0) 0.2rem solid;
+    transition: border-left 200ms;
+}
+
+.article .detail-header {
+    padding: 2rem 1rem;
+    color: #3354AA;
+    font-size: 1.4rem;
+    font-weight: 100;
+    line-height: 1.125;
+}
+
+.article .content {
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .article:hover .header {
+        border-left: #3354AA 0.2rem solid;
+    }
 }
 
 .comment-list, .media {

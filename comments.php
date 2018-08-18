@@ -59,7 +59,7 @@
                     <?php $comments->cancelReply(); ?>
                     <div class="field has-addons">
                         <p class="control">
-                            <input class="input" type="text" name="author" id="author" placeholder="称呼" value="<?php $this->remember('author'); ?>" required>
+                            <input class="input" type="text" name="author" id="author" value="<?php $this->remember('author'); ?>" required>
                         </p>
                         <p class="control">
                             <a class="button is-static">

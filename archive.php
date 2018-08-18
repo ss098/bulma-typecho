@@ -2,15 +2,17 @@
 <?php $this->need('header.php'); ?>
     <?php if ($this->have()): ?>
     <?php while($this->next()): ?>
-        <article>
-            <section class="section">
-                <a class="article-title" href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
-            </section>
+            <article class="article">
+                <a href="<?php $this->permalink() ?>">
+                    <section class="header">
+                        <?php $this->title() ?>
+                    </section>
+                </a>
 
-            <section class="section content">
-                <?php $this->content('阅读剩余部分') ?>
-            </section>
-        </article>
+                <section class="content">
+                    <?php $this->content('阅读剩余部分') ?>
+                </section>
+            </article>
     <?php endwhile; ?>
     <?php else: ?>
         <div class="notification">
