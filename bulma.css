@@ -9645,7 +9645,7 @@ label.panel-block:hover {
 }
 
 .section {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1rem;
 }
 
 @media screen and (min-width: 1088px) {
@@ -9678,11 +9678,8 @@ label.panel-block:hover {
 .article .header {
     padding: 2rem 1rem;
     color: #3354AA;
-    font-size: 1.4rem;
-    font-weight: 100;
-    line-height: 1.125;
-    border-left: rgba(0, 0, 0, 0) 0.2rem solid;
-    transition: border-left 200ms;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .article .detail-header {
@@ -9695,12 +9692,6 @@ label.panel-block:hover {
 
 .article .content {
     padding: 1rem;
-}
-
-@media (min-width: 768px) {
-    .article:hover .header {
-        border-left: #3354AA 0.2rem solid;
-    }
 }
 
 .comment-list, .media {

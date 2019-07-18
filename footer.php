@@ -2,7 +2,7 @@
     </div>
 </div>
 
-<footer class="container" style="padding-top: 2em;padding-bottom: 2em;">
+<footer class="container">
     <div class="content has-text-centered">
         <p>
             &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a> 由 Typecho 驱动

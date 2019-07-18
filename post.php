@@ -7,7 +7,7 @@
     </section>
 
     <section class="content">
-        <?php $this->content('阅读剩余部分') ?>
+        <?php $this->content('阅读文章的剩余部分') ?>
     </section>
 </article>
 
