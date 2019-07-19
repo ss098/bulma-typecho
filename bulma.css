@@ -9683,11 +9683,15 @@ label.panel-block:hover {
 }
 
 .article .detail-header {
-    padding: 2rem 1rem;
+    padding: 1rem;
     color: #3354AA;
     font-size: 1.5rem;
     font-weight: 100;
     line-height: 1.125;
+}
+
+.article .has-text-centered {
+    padding: 1rem 0;
 }
 
 .article .content {

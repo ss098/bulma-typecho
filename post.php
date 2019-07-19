@@ -2,8 +2,14 @@
 <?php $this->need('header.php'); ?>
 
 <article class="article">
-    <section class="detail-header has-text-centered">
-        <?php $this->title() ?>
+    <section class="has-text-centered">
+        <div class="detail-header">
+            <?php $this->title() ?>
+        </div>
+
+        <div class="has-text-grey-light">
+            <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished">发表于 <?php $this->date('Y 年 m 月 d 日'); ?></time>
+        </div>
     </section>
 
     <section class="content">
