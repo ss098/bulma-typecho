@@ -1,8 +1,8 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-    </div>
+
 </div>
 
-<footer class="container">
+<footer class="section">
     <div class="content has-text-centered">
         <p>
             &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a> 由 Typecho 驱动
