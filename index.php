@@ -12,9 +12,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $this->need('header.php');
 ?>
 
+<?php if ($this->_currentPage <= 1): ?>
 <section class="hero is-medium is-dark is-bold">
     <div class="hero-body">
-        <div class="container has-text-centered"><h1 class="title">
+        <div class="container has-text-centered">
+            <h1 class="title">
                 <?php $this->options->title() ?>
             </h1>
             <h2 class="subtitle">
@@ -23,6 +25,7 @@ $this->need('header.php');
         </div>
     </div>
 </section>
+<?php endif;  ?>
 
 <div class="section columns is-centered">
     <div class="column is-two-fifths">
